@@ -13,7 +13,7 @@ import { ItemContainerComponent } from "../primitives/ItemContainer";
   selector: 'ComboBox',
   imports: [CommonModule, DropDownButtonComponent, FlyoutComponent, ListViewComponent, ItemContainerComponent],
   template: `<DropDownButton [Height]="Height" [Width]="Width" [HorizontalContentAlignment]="HorizontalContentAlignment" [VerticalContentAlignment]="VerticalContentAlignment" [IsEnabled]="IsEnabled">
-    <ItemContainer #container>${BuildSelectorItemTemplate('selectionTemplate')}<span *ngIf="SelectedIndex < 0" class="placeholder">{{ PlaceholderText }}</span></ItemContainer>
+    <ItemContainer #container>${BuildSelectorItemTemplate<ComboBoxComponent>('selectedItemTemplate')}<span *ngIf="SelectedIndex < 0" class="placeholder">{{ PlaceholderText }}</span></ItemContainer>
     <Flyout Placement="Cover" Padding="0" [Target]="target" (IsOpenChange)="onIsOpenChanged($event)">
       <ListView [ItemSource]="ItemSource" [(SelectedIndex)]="SelectedIndex" [HorizontalContentAlignment]="HorizontalContentAlignment" [VerticalContentAlignment]="VerticalContentAlignment"
                 [ItemTemplate]="ItemTemplate" [DisplayMemberPath]="DisplayMemberPath" [SelectedValuePath]="SelectedValuePath" (ItemClick)="onItemClicked()"/>
@@ -26,10 +26,10 @@ export class ComboBoxComponent extends SelectorComponent implements AfterViewIni
   @Input() IsTextSearchEnabled: boolean = true;
   @Input() PlaceholderText: string = '';
 
-  @Input() SelectionTemplate?: TemplateRef<any>;
+  @Input() SelectedItemTemplate?: TemplateRef<any>;
 
-  protected get selectionTemplate() {
-    return this.SelectionTemplate ?? this.ItemTemplate;
+  get selectedItemTemplate() {
+    return this.SelectedItemTemplate ?? this.ItemTemplate;
   }
 
   @HostBinding('attr.tabindex')
