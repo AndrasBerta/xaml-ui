@@ -1,5 +1,5 @@
 Write-Host 'Collecting build version information...' -ForegroundColor Magenta
-$version = if ($null -ne $env:APPVEYOR_BUILD_VERSION) { $env:APPVEYOR_BUILD_VERSION } else { "1.0.0.0" }
+$version = if ($env:PACKAGE_VERSION) { $env:PACKAGE_VERSION } elseif ($env:APPVEYOR_BUILD_VERSION) { $env:APPVEYOR_BUILD_VERSION } else { "1.0.0.0" }
 $version = [Version]::Parse($version).ToString(3)
 Write-Host "Version: $version"
 
@@ -29,13 +29,7 @@ else {
 Write-Host 'Creating npm package...' -ForegroundColor Magenta
 Push-Location ./dist/xaml-ui
 
-if ($env:APPVEYOR) {
-  Write-Host 'Publishing npm package...' -ForegroundColor Magenta
-  npm config set //registry.npmjs.org/:_authToken=$env:NPM_TOKEN
-  npm publish
-} else {
-  npm pack --pack-destination="../../../Output"
-}
+npm pack --pack-destination="../../../Output"
 
 Pop-Location
 
