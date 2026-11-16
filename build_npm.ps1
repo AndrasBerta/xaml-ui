@@ -29,7 +29,9 @@ else {
 Write-Host 'Creating npm package...' -ForegroundColor Magenta
 Push-Location ./dist/xaml-ui
 
-npm pack --pack-destination="$PSScriptRoot/Output"
+# npm.ps1 re-evaluates its command line in its own scope, so pass a plain variable (not $PSScriptRoot)
+$outputPath = Join-Path $PSScriptRoot 'Output'
+npm pack --pack-destination $outputPath
 
 Pop-Location
 
