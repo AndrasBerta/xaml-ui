@@ -29,7 +29,7 @@ else {
 Write-Host 'Creating npm package...' -ForegroundColor Magenta
 Push-Location ./dist/xaml-ui
 
-npm pack --pack-destination="../../../Output"
+npm pack --pack-destination="$PSScriptRoot/Output"
 
 Pop-Location
 
