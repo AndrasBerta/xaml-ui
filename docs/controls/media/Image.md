@@ -11,6 +11,11 @@ Image display control with stretch modes. Extends [FrameworkElement](../Framewor
 | `Source` | `string` | — | Image URL or data URI |
 | `Stretch` | `'None' \| 'Fill' \| 'Uniform' \| 'UniformToFill'` | `'Uniform'` | How the image fills its bounds |
 
+| Output | Type | Description |
+|---|---|---|
+| `ImageOpened` | `EventEmitter<Event>` | The image was loaded and decoded |
+| `ImageFailed` | `EventEmitter<Event>` | The image could not be loaded or decoded |
+
 ## Stretch Modes
 
 | Value | Description |
@@ -32,4 +37,13 @@ From [FrameworkElement](../FrameworkElement.md): `Width`, `Height`, `Margin`, `P
 
 ```html
 <Image [Source]="thumbnailUrl" Stretch="UniformToFill" Width="100px" Height="100px" />
+```
+
+**Placeholder until the image is ready:**
+
+```html
+<Grid>
+  <FontIcon *ngIf="!isLoaded" Glyph="&#xEA86;" />
+  <Image [Source]="url" [Opacity]="isLoaded ? 1 : 0" (ImageOpened)="isLoaded = true" (ImageFailed)="isLoaded = false" />
+</Grid>
 ```

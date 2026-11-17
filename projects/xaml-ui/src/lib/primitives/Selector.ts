@@ -51,7 +51,7 @@ export abstract class SelectorComponent extends FrameworkElementComponent {
     let oldIndex = this.SelectedIndex;
     let oldValue = this.SelectedValue;
     let oldItem = this.SelectedItem;
-    let newIndex = value.findIndex(p => this.getValue(-1, p) == oldValue);
+    let newIndex = this.isSelectionEnabled ? value.findIndex(p => this.getValue(-1, p) == oldValue) : -1;
     let newValue = newIndex !== -1 ? oldValue : null;
     let newItem = newIndex !== -1 ? value[newIndex] : null;
 
@@ -70,6 +70,7 @@ export abstract class SelectorComponent extends FrameworkElementComponent {
   }
   @Input() set SelectedIndex(value: number) {
     if (this.ItemSource === undefined) return;
+    if (!this.isSelectionEnabled) value = -1;
     if (value < 0 && this.ItemSource.length > 0) value = -1;
     if (value >= this.ItemSource.length) value = this.ItemSource.length - 1;
 
@@ -115,17 +116,18 @@ export abstract class SelectorComponent extends FrameworkElementComponent {
 
   protected getValue: (index: number, item: any) => any;
 
-  @Output() ItemClick = new EventEmitter<number>();
+  //Whether items can be selected, derived controls can turn selection off
+  protected get isSelectionEnabled() {
+    return true;
+  }
 
   protected onItemClick(event: Event, index: number, item: any) {
     if (!this.IsEnabled) return;
 
-    if (this.SelectedIndex !== index) {
+    if (this.isSelectionEnabled && this.SelectedIndex !== index) {
       this.SelectedIndex = index;
       event.stopPropagation();
     }
-
-    this.ItemClick.emit(index);
   }
 
   GetElement(index: number) {

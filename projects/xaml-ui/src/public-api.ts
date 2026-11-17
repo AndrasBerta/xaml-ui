@@ -21,6 +21,7 @@ export * from './lib/basic-input/ToggleSwitch';
 export * from './lib/collections/ListBox';
 export * from './lib/collections/ListView';
 export * from './lib/collections/GridView';
+export * from './lib/collections/ListViewBase';
 
 //Dialogs and flyouts
 export * from './lib/dialogs-and-flyouts/ContentDialog';
@@ -38,6 +39,7 @@ export * from './lib/layout/Grid';
 export * from './lib/layout/Panel';
 export * from './lib/layout/Separator';
 export * from './lib/layout/StackPanel';
+export * from './lib/layout/WrapPanel';
 
 //Media
 export * from './lib/media/Image';

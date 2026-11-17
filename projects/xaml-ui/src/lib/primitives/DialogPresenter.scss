@@ -1,4 +1,9 @@
 .frame {
+  //As in WinUI, the dialog stays within the window, and its content scrolls when it does not fit
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  max-height: calc(100vh - 48px);
+
   border-radius: var(--OverlayCornerRadius);
   border-color: var(--SurfaceStrokeColorDefault);
   border-style: solid;
@@ -16,16 +21,21 @@
   transform: scale(1.0);
 }
 
+//Explicit rows, as the header and footer may be hidden
 .header {
+  grid-row: 1;
   font-size: 20pt;
   padding: 24px 24px 0 24px;
 }
 
+//The padding is outside the scrolled area, as in WinUI, so the content scrolls out of view at its edge
 .body {
+  grid-row: 2;
   padding: 24px;
 }
 
 .footer {
+  grid-row: 3;
   padding: 24px;
 }
 

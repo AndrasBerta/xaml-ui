@@ -2,14 +2,15 @@
 
 > Source: [ListView.ts](../../../projects/xaml-ui/src/lib/collections/ListView.ts)
 
-Scrollable list with single selection, item templates, and enter/leave animations. Extends [Selector](../primitives/Selector.md) → [FrameworkElement](../FrameworkElement.md).
+Scrollable list with single selection, item templates, and enter/leave animations. Extends [ListViewBase](ListViewBase.md) → [Selector](../primitives/Selector.md) → [FrameworkElement](../FrameworkElement.md).
 
 ## Own Properties
 
-None beyond [Selector](../primitives/Selector.md). ListView adds a ScrollViewer and StackPanel internally.
+None beyond [ListViewBase](ListViewBase.md). ListView adds a ScrollViewer and StackPanel internally.
 
 ## Inherited Properties
 
+- From [ListViewBase](ListViewBase.md): `SelectionMode`, `IsItemClickEnabled`, output `ItemClick`
 - From [Selector](../primitives/Selector.md): `ItemSource`, `SelectedIndex`, `SelectedValue`, `SelectedItem`, `DisplayMemberPath`, `SelectedValuePath`, `IsEnabled`, `HorizontalContentAlignment`, `VerticalContentAlignment`, `ItemTemplate`
 - Outputs: `SelectedIndexChange`, `SelectedValueChange`, `SelectedItemChange`
 - From [FrameworkElement](../FrameworkElement.md): `Width`, `Height`, `MaxHeight`, `Margin`, `Padding`, etc.
@@ -19,7 +20,7 @@ None beyond [Selector](../primitives/Selector.md). ListView adds a ScrollViewer 
 - Built-in ScrollViewer for vertical scrolling
 - Items animate in/out (500ms fade/slide)
 - Selected item gets `.selected` CSS class with accent highlight
-- Click on item selects it
+- Click on item selects it, unless `SelectionMode` is `'None'`
 
 ## Examples
 

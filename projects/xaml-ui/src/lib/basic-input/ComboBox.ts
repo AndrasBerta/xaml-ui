@@ -16,7 +16,7 @@ import { ItemContainerComponent } from "../primitives/ItemContainer";
     <ItemContainer #container>${SelectorItemTemplate}<span *ngIf="SelectedIndex < 0" class="placeholder">{{ PlaceholderText }}</span></ItemContainer>
     <Flyout Placement="Cover" Padding="0" [Target]="target" (IsOpenChange)="onIsOpenChanged($event)">
       <ListView [ItemSource]="ItemSource" [(SelectedIndex)]="SelectedIndex" [HorizontalContentAlignment]="HorizontalContentAlignment" [VerticalContentAlignment]="VerticalContentAlignment"
-                [ItemTemplate]="ItemTemplate" [DisplayMemberPath]="DisplayMemberPath" [SelectedValuePath]="SelectedValuePath" (ItemClick)="onItemClicked()"/>
+                [ItemTemplate]="ItemTemplate" [DisplayMemberPath]="DisplayMemberPath" [SelectedValuePath]="SelectedValuePath" [IsItemClickEnabled]="true" (ItemClick)="onItemClicked()"/>
     </Flyout>
   </DropDownButton>`,
   styleUrl: 'ComboBox.scss'

@@ -6,6 +6,7 @@ import { CommonModule } from "@angular/common";
 import { Dialog } from "./Dialog";
 import { TextBlockComponent } from "../text/TextBlock";
 import { XamlRootComponent } from "../XamlRoot";
+import { ScrollViewerComponent } from "../scrolling/ScrollViewer";
 
 export enum ContentDialogResult {
   None,
@@ -25,10 +26,12 @@ export enum ContentDialogButton {
   template: `<XamlRoot>
     <div class="frame">
       <div #header class="header">{{_dialog.Title}}</div>
-      <div class="body">
-        <TextBlock TextWrapping="Wrap">{{_dialog.Content}}</TextBlock>
-        <ng-content/>
-      </div>
+      <ScrollViewer class="body" HorizontalScrollMode="Disabled">
+        <div class="body-content">
+          <TextBlock TextWrapping="Wrap">{{_dialog.Content}}</TextBlock>
+          <ng-content/>
+        </div>
+      </ScrollViewer>
       <div #footer class="footer" [ngStyle]="{'display': isFooterVisible ? 'grid' : 'none'}">
         <Grid Orientation="Horizontal" ColumnSpacing="6px" AutoColumnDefinition="minmax(0, 1fr)" Footer>
           <Button *ngIf="_dialog.PrimaryButtonText !== undefined" [IsEnabled]="_dialog.IsPrimaryButtonEnabled" (Click)="onPrimaryButtonClicked()" [class.AccentButtonStyle]="isPrimaryButtonDefault">{{_dialog.PrimaryButtonText}}</Button>
@@ -39,7 +42,7 @@ export enum ContentDialogButton {
     </div>
   </XamlRoot>`,
   styles: ``,
-  imports: [GridModule, ButtonComponent, CommonModule, TextBlockComponent, XamlRootComponent],
+  imports: [GridModule, ButtonComponent, CommonModule, TextBlockComponent, XamlRootComponent, ScrollViewerComponent],
   styleUrl: '../Primitives/DialogPresenter.scss',
   providers: [{ provide: 'xaml-dialog-presenter', useExisting: ContentDialogPresenter }]
 })

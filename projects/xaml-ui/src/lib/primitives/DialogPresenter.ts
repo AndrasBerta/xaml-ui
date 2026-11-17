@@ -1,18 +1,19 @@
 import { Component, ContentChild, ElementRef, HostBinding, Input, ViewChild } from "@angular/core";
 import { XamlRootComponent } from "../XamlRoot";
 import { CommonModule } from "@angular/common";
+import { ScrollViewerComponent } from "../scrolling/ScrollViewer";
 
 @Component({
   selector: 'DialogPresenter',
   template: `<XamlRoot>
     <div class="frame">
       <div #header class="header" [ngStyle]="{'display': isHeaderVisible ? 'grid' : 'none'}"><ng-content select="[Header]"/></div>
-      <div class="body"><ng-content/></div>
+      <ScrollViewer class="body" HorizontalScrollMode="Disabled"><div class="body-content"><ng-content/></div></ScrollViewer>
       <div #footer class="footer" [ngStyle]="{'display': isFooterVisible ? 'grid' : 'none'}"><ng-content select="[Footer]"/></div>
     </div>
   </XamlRoot>`,
   styleUrls: ['DialogPresenter.scss'],
-  imports: [CommonModule, XamlRootComponent],
+  imports: [CommonModule, XamlRootComponent, ScrollViewerComponent],
   providers: [{ provide: 'xaml-dialog-presenter', useExisting: DialogPresenter }]
 })
 export class DialogPresenter extends XamlRootComponent {

@@ -1,6 +1,7 @@
 import { Component, Injector } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { SelectorComponent, SelectorItemTemplate } from "../primitives/Selector";
+import { SelectorItemTemplate } from "../primitives/Selector";
+import { ListViewBaseComponent } from "./ListViewBase";
 import { ScrollViewerComponent } from "../scrolling/ScrollViewer";
 import { StackPanelComponent } from "../layout/StackPanel";
 import { animate, keyframes, style, transition, trigger } from "@angular/animations";
@@ -39,5 +40,5 @@ import { ItemContainerComponent } from "../primitives/ItemContainer";
   ],
   styleUrl: 'ListView.scss'
 })
-export class ListViewComponent extends SelectorComponent {
+export class ListViewComponent extends ListViewBaseComponent {
 }
