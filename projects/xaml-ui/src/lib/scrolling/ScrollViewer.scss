@@ -26,11 +26,17 @@
     grid-column-start: 1;
     justify-self: stretch;
     align-self: stretch;
+
+    //Keeps the z-indexes of the content, such as sticky headers, inside it, so they stay below the scrollbars
+    isolation: isolate;
   }
 
   &>.scrollbar {
     display: grid;
     grid-row-start: 1;
     grid-column-start: 1;
+
+    //The scrollbars overlay the content
+    z-index: 1;
   }
 }
