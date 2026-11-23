@@ -2,8 +2,11 @@
 
 :host {
   display: grid;
-  //Pass a bounded height on to the ScrollViewer rather than growing with the items.
+  
+  //The scroll viewer may not grow its track past the size of the control, otherwise a MaxHeight / MaxWidth
+  //would let it overflow instead of scroll
   grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
 
   & .item {
     display: grid;
@@ -35,7 +38,7 @@
     }
   }
 
-  &:not(.disabled) .item {
+  &.interactive .item {
     &:not(:hover):not(:active):not(.selected) {
       background-color: transparent;
       color: var(--TextFillColorPrimary);

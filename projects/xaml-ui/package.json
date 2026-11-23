@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "license": "MPL-2.0",
   "description": "XAML UI is angular version of Microsoft's WinUI component library.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axodox/xaml-ui.git"
+  },
   "peerDependencies": {
     "@angular/cdk": "^19.2.11",
     "@angular/common": "^19.2.6",

@@ -45,7 +45,8 @@ When no template is provided, items are displayed using `DisplayMemberPath` or `
 
 ## Subclasses
 
-- [ListView](../collections/ListView.md) — scrollable list
+- [ListViewBase](../collections/ListViewBase.md) — adds `SelectionMode`
+  - [ListView](../collections/ListView.md) — scrollable list
 - [ListBox](../collections/ListBox.md) — list without scroll
-- [GridView](../collections/GridView.md) — grid layout
+  - [GridView](../collections/GridView.md) — grid layout
 - [ComboBox](../basic-input/ComboBox.md) — dropdown

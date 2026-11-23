@@ -18,6 +18,10 @@ export class ScrollViewerComponent extends FrameworkElementComponent implements 
   @Input() HorizontalScrollMode: ScrollMode = 'Auto';
   @Input() VerticalScrollMode: ScrollMode = 'Auto';
 
+  //Whether scrolling continues in the parent once this one cannot scroll further, as in WinUI
+  @Input() IsHorizontalScrollChainingEnabled: boolean = true;
+  @Input() IsVerticalScrollChainingEnabled: boolean = true;
+
   @ViewChild('content')
   private _content!: ElementRef<HTMLDivElement>;
 
@@ -110,7 +114,9 @@ export class ScrollViewerComponent extends FrameworkElementComponent implements 
   protected get contentStyle() {
     return {
       'overflow-x': ScrollViewerComponent.toOverflow(this.HorizontalScrollMode),
-      'overflow-y': ScrollViewerComponent.toOverflow(this.VerticalScrollMode)
+      'overflow-y': ScrollViewerComponent.toOverflow(this.VerticalScrollMode),
+      'overscroll-behavior-x': this.IsHorizontalScrollChainingEnabled ? 'auto' : 'contain',
+      'overscroll-behavior-y': this.IsVerticalScrollChainingEnabled ? 'auto' : 'contain'
     };
   }
 

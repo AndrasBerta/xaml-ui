@@ -3,9 +3,9 @@ branches:
   only:
   - main
 image: Visual Studio 2022
-environment:
-  NPM_TOKEN:
-    secure: rAP2UEWxMeKzQvgB0tysQ5nI+SuEKaDUgVQQlaxUlGaxqv/MlNFADF4OTRTn6JRd
 build_script:
 - ps: >-
     .\build_npm.ps1
+artifacts:
+- path: Output\*.tgz
+  name: NpmPackages

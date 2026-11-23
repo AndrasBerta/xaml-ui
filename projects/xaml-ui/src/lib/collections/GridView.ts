@@ -1,7 +1,8 @@
 import { Component, HostBinding, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ItemContainerComponent } from "../primitives/ItemContainer";
-import { SelectorComponent, SelectorItemTemplate } from "../primitives/Selector";
+import { SelectorItemTemplate } from "../primitives/Selector";
+import { ListViewBaseComponent } from "./ListViewBase";
 import { trigger, transition, animate, keyframes, style } from "@angular/animations";
 import { ScrollViewerComponent } from "../scrolling/ScrollViewer";
 import { GridModule } from "../layout/Grid";
@@ -40,7 +41,7 @@ import { Orientation } from "../Common";
   ],
   styleUrl: 'GridView.scss'
 })
-export class GridViewComponent extends SelectorComponent {
+export class GridViewComponent extends ListViewBaseComponent {
   @Input() MaximumRowsOrColumns: number = 2;
   @Input() Orientation: Orientation = "Horizontal";
 

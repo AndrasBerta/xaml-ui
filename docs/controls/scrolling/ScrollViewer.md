@@ -10,6 +10,10 @@ Scrollable container with custom ScrollBars. Extends [FrameworkElement](../Frame
 |---|---|---|---|
 | `HorizontalScrollMode` | `'Disabled' \| 'Enabled' \| 'Auto'` | `'Auto'` | Horizontal scroll behavior |
 | `VerticalScrollMode` | `'Disabled' \| 'Enabled' \| 'Auto'` | `'Auto'` | Vertical scroll behavior |
+| `IsHorizontalScrollChainingEnabled` | `boolean` | `true` | Whether horizontal scrolling continues in the parent once this viewer cannot scroll further (CSS `overscroll-behavior-x`) |
+| `IsVerticalScrollChainingEnabled` | `boolean` | `true` | Whether vertical scrolling continues in the parent once this viewer cannot scroll further (CSS `overscroll-behavior-y`) |
+
+The viewport never grows past the control's own size, so a `MaxHeight` or `MaxWidth` makes the content scroll rather than overflow.
 
 ## ScrollMode Values
 

@@ -25,6 +25,7 @@ Content is projected into three bands by attribute:
 ## Behavior
 
 - The header and footer are hidden rather than left as empty bands when their slot is unused, so a dialog with body content only has no stray gaps.
+- As in WinUI, the dialog stays within the window, 24px from its edges, and the body scrolls in a [ScrollViewer](../scrolling/ScrollViewer.md) when the content does not fit; the header and footer stay in place.
 - `DialogPresenter.TransitionDuration` (250 ms) is the time to wait before removing the content after setting `IsVisible` to `false`, so the closing transition can finish.
 - Inherits `XamlRoot`'s behaviour, including blocking the browser context menu.
 

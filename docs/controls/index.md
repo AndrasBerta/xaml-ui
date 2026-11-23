@@ -17,6 +17,7 @@ Complete index of all xaml-ui controls, organized by category.
 | [Panel](layout/Panel.md) | Abstract base for containers. Provides background, corner radius, border. |
 | [Grid](layout/Grid.md) | CSS Grid layout with XAML-style row/column definitions and 0-based placement directives. |
 | [StackPanel](layout/StackPanel.md) | Arranges children sequentially in a row or column with spacing. |
+| [WrapPanel](layout/WrapPanel.md) | Arranges children in rows or columns, wrapping onto the next one when out of space. |
 | [Border](layout/Border.md) | Single-child container with panel styling. Children overlay in one cell. |
 | [Separator](layout/Separator.md) | Horizontal or vertical dividing line. |
 
@@ -58,6 +59,7 @@ Complete index of all xaml-ui controls, organized by category.
 | Control | Description |
 |---|---|
 | [Selector](primitives/Selector.md) | Abstract base for collection controls. Provides item source, selection, and templates. |
+| [ListViewBase](collections/ListViewBase.md) | Abstract base of ListView and GridView. Adds the selection mode, which can turn selection off. |
 | [ListView](collections/ListView.md) | Scrollable list with single selection, item templates, and animations. |
 | [ListBox](collections/ListBox.md) | List without built-in scrolling. |
 | [GridView](collections/GridView.md) | Grid-based collection display with configurable rows/columns. |

@@ -2,7 +2,7 @@
 
 > Source: [GridView.ts](../../../projects/xaml-ui/src/lib/collections/GridView.ts)
 
-Grid-based collection display with single selection and animations. Extends [Selector](../primitives/Selector.md) → [FrameworkElement](../FrameworkElement.md).
+Grid-based collection display with single selection and animations. Extends [ListViewBase](ListViewBase.md) → [Selector](../primitives/Selector.md) → [FrameworkElement](../FrameworkElement.md).
 
 ## Own Properties
 
@@ -13,6 +13,7 @@ Grid-based collection display with single selection and animations. Extends [Sel
 
 ## Inherited Properties
 
+- From [ListViewBase](ListViewBase.md): `SelectionMode`, `IsItemClickEnabled`, output `ItemClick`
 - From [Selector](../primitives/Selector.md): `ItemSource`, `SelectedIndex`, `SelectedValue`, `SelectedItem`, `DisplayMemberPath`, `SelectedValuePath`, `IsEnabled`, `HorizontalContentAlignment`, `VerticalContentAlignment`, `ItemTemplate`
 - Outputs: `SelectedIndexChange`, `SelectedValueChange`, `SelectedItemChange`
 - From [FrameworkElement](../FrameworkElement.md): `Width`, `Height`, `MaxHeight`, `Margin`, `Padding`, etc.
